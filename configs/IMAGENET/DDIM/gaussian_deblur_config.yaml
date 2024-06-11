@@ -1,0 +1,22 @@
+conditioning:
+  method: CoDPS+
+  params:
+    scale: 0.04
+    t_div: 15
+    div_ratio: 5
+    inv_var: 2
+    use_A_AT: True
+
+data:
+  name: imagenet
+  root: ./samples/imagenet256_1k/
+
+measurement:
+  operator:
+    name: gaussian_blur
+    kernel_size: 61
+    intensity: 3
+  
+  noise: 
+    name: gaussian
+    sigma: 0.05

@@ -1,0 +1,25 @@
+conditioning:
+  method: CoDPS+
+  params:
+    scale: 0.4
+    t_div: 10
+    div_ratio: 100
+    inv_var: 0
+    use_A_AT: True
+
+data:
+  name: ffhq
+  root: ./samples/ffhq_00000_256/
+
+measurement:
+  operator:
+    name: inpainting
+  mask_opt:
+    mask_type: random
+    mask_prob_range: !!python/tuple [0.70, 0.80]  # Random inpainting range
+    image_size: 256
+
+
+  noise:
+    name: gaussian
+    sigma: 0.05

@@ -1,0 +1,22 @@
+conditioning:
+  method: CoDPS
+  params:
+    scale: 0.01
+    t_div: 200
+    div_ratio: 10
+    inv_var: 0.1
+    use_A_AT: True
+
+data:
+  name: ffhq
+  root: ./samples/ffhq_00000_256/
+
+measurement:
+  operator:
+    name: motion_blur
+    kernel_size: 61
+    intensity: 0.5
+
+  noise: 
+    name: gaussian
+    sigma: 0.05

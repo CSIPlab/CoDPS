@@ -1,0 +1,22 @@
+conditioning:
+  method: CoDPS+
+  params:
+    scale: 0.05
+    t_div: 20
+    div_ratio: 5
+    inv_var: 2
+    use_A_AT: True
+
+data:
+  name: imagenet
+  root: ./samples/imagenet256_1k/
+
+measurement:
+  operator:
+    name: super_resolution
+    scale_factor: 4
+    degradation: gaussian # or bicubic, avg_pool degradation types 
+  
+  noise: 
+    name: gaussian
+    sigma: 0.05

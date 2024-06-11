@@ -1,0 +1,20 @@
+conditioning:
+  method: CoDPS
+  params:
+    scale: 0.02
+    t_div: 80
+    div_ratio: 100
+    inv_var: 10
+    use_A_AT: True
+
+data:
+  name: imagenet
+  root: ./samples/imagenet256_1k/
+
+measurement:
+  operator:
+    name: inpainting
+  mask_opt:
+    mask_type: random
+    mask_prob_range: !!python/tuple [0.70, 0.80]  # for random
+    image_size: 256

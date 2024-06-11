@@ -1,0 +1,42 @@
+conditioning:
+  method: ps
+  params:
+    scale: 1
+    t_div: 80
+    div_ratio: 1000
+    inv_var: 500
+    # scale: [0.08]
+    # t_div: [15]
+    # div_ratio: [5]
+    # inv_var: [2]
+    use_A_AT: True
+
+data:
+  name: ffhq
+  root: ./data/ffhq_00000_256/
+
+# data:
+#   name: imagenet
+#   root: ./data/imagenet256_1k/
+
+# data:
+#   name: imagenet_v2
+#   root: /data/root/ImageNet/
+#   subset_txt: ../RED-diff/misc/dgp_top1k.txt
+#   meta_root: /data/root/ImageNet/
+
+measurement:
+  operator:
+    name: inpainting
+  mask_opt:
+    # mask_type: box
+    mask_type: random
+    # mask_len_range: !!python/tuple [128, 129]  # for box
+    mask_prob_range: !!python/tuple [0.70, 0.80]  # for random
+    # mask_prob_range: !!python/tuple [0.7, 0.8]  # for random
+    image_size: 256
+
+
+  noise:
+    name: gaussian
+    sigma: 0.05
